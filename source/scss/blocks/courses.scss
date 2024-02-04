@@ -77,18 +77,33 @@
     grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
     padding: 0;
     margin: 0 0 40px;
+    // opacity: 0;
     list-style: none;
-    opacity: 0;
-    transform: translate3d(0, 50px, 0);
+    // transform: translate3d(0, 50px, 0);
 
     @include vp-767 {
       grid-template-columns: 1fr;
     }
 
     &.is-active {
-      opacity: 1;
-      transition: opacity 0.3s ease-out, transform 0.3s ease-out;
-      transform: translate3d(0, 0, 0);
+      animation-name: show;
+      animation-duration: .3s;
+      animation-timing-function: ease-out;
+      // opacity: 1;
+      // transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+      // transform: translate3d(0, 0, 0);
     }
+  }
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 50px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 }
